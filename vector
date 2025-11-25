@@ -1,0 +1,54 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+#include <chrono>
+
+std::vector <int> v;
+
+//push_back O(1)
+//pop_back  O(1)
+//size    
+//reverse  
+//empty
+//emplace_back
+//capacity
+//swap  O(1)   (V[n],v.size())
+//shrink_fit
+//reserve
+
+// swap 
+
+
+/*
+vector f(std::vector &v, int &target){
+    return {};
+}
+.018
+.878
+
+.074
+.802
+*/
+
+int main()
+{
+    v.reserve(50000000);
+    auto start = std::chrono::high_resolution_clock::now();
+    for (int i = 0; i < 50000000; ++i) {
+        v.push_back(i);
+    }    
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = end - start;
+    std::cout << "Elapsed: " << elapsed.count() << " s\n";
+
+
+    return 0;
+}
