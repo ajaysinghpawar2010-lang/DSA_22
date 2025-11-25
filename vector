@@ -27,17 +27,6 @@ std::vector <int> v;
 // swap 
 
 
-/*
-vector f(std::vector &v, int &target){
-    return {};
-}
-.018
-.878
-
-.074
-.802
-*/
-
 int main()
 {
     v.reserve(50000000);
