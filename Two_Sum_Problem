@@ -1,14 +1,43 @@
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-      std::unordered_map<int, int> complementMap;
-        for (int i = 0; i < nums.size(); ++i) {
-          int complement = target - nums[i];
-            if (complementMap.count(complement)) {
-              return {complementMap[complement], i};
+/******************************************************************************
+https://www.onlinegdb.com/#editor_1
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+std::vector<int> v= {2,5,7,8,10,20,40,60} ;
+
+std::vector <int> f(std::vector <int> &v, int target){
+    int l=0;
+    int r=v.size()-1;
+    
+    while (l<r){
+        int sum = v[l] + v[r];
+        if (sum == target){
+            
+            return {l+1,r+1};
         }
-       complementMap[nums[i]] = i;
-      }
-      return {}; 
+        else if (sum >target){
+            r--;
+        }
+        else
+            l++;
+        
     }
-};
+    return {};
+}
+
+int main()
+{
+
+  std::vector <int>s = f(v,18);
+  for(int i:s)
+    std::cout << i<< std::endl;
+  return 0;
+
+}
