@@ -1,0 +1,60 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+std::map <int,std::string> m = {{1,"Ajay"},{1,"Aajay"}};
+
+/*
+1. Insertion:
+insert(): Adds a new key-value pair. If the key already exists, insert() typically does not modify the element, depending on the overload used.
+operator[]: Inserts a new key-value pair if the key doesn't exist, or updates the value if the key already exists.
+emplace(): Constructs a new key-value pair in-place, potentially offering better performance than insert() for complex types.
+try_emplace() (C++17 onwards): Inserts a new element only if the key does not already exist.
+2. Accessing Elements:
+operator[]: Retrieves the value associated with a given key. If the key doesn't exist, it inserts a new element with a default-constructed value and returns a reference to it.
+at(): Retrieves the value associated with a given key. If the key doesn't exist, it throws an std::out_of_range exception. 
+3. Deletion:
+erase(): Removes elements from the map. It can remove a specific element by key, a specific element by iterator, or a range of elements by iterators.
+clear(): Removes all elements from the map, leaving it empty.
+4. Searching and Information:
+find(): Searches for a key and returns an iterator to the corresponding element if found, or an iterator to end() if not found.
+count(): Returns the number of elements with a specific key. For std::map, this will always be 0 or 1 due to unique keys.
+lower_bound(): Returns an iterator to the first element whose key is not less than the given key.
+upper_bound(): Returns an iterator to the first element whose key is greater than the given key.
+equal_range(): Returns a pair of iterators representing the range of elements with a specific key (for std::map, this will be a range of at most one element).
+size(): Returns the number of elements in the map.
+empty(): Checks if the map is empty, returning true if it is, false otherwise. 
+5. Iteration:
+begin(): Returns an iterator to the first element of the map.
+end(): Returns an iterator to the element past the last element of the map.
+rbegin(): Returns a reverse iterator to the last element of the map.
+rend(): Returns a reverse iterator to the element before the first element of the map. 
+
+*/
+
+int main()
+{
+  m.emplace(2,"Ashish");
+  m.insert({3,"newInsert"});
+  m[1] = "AjayNew";  // update
+
+  if(m.count(3))    // count to find 
+    std::cout << "found key 3" << m.count(3) << std::endl;
+
+  m.erase(1);
+
+  for(auto &a : m)
+  std::cout << a.first << ":" << a.second << std::endl;
+  
+  m.clear();
+  
+  return 0;
+}
